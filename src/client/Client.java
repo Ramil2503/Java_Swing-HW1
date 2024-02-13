@@ -60,7 +60,7 @@ public class Client extends JFrame{
         } 
     }
 
-    private void appendLog(String text) {
+    public void appendLog(String text) {
         log.append(text + "\n");
     }
 

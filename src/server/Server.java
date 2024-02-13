@@ -46,6 +46,7 @@ public class Server extends JFrame {
         if (work) {
             addClient(client);
             appendLog("Client " + client.getCustomerName() + " connected to the server");
+            client.appendLog(getLog());
             return true;
         } else {
             return false;
@@ -90,7 +91,11 @@ public class Server extends JFrame {
     }
 
     private void loadLog() {
-        appendLog(fileManager.loadLog());
+        appendLog(getLog());
+    }
+
+    private String getLog() {
+        return fileManager.loadLog();
     }
 
     private Component createButtons() {
