@@ -1,10 +1,11 @@
 import client.Client;
 import server.Server;
+import server.ServerInterface;
 
 public class Main {
     public static void main(String[] args) {
-        Server serverWindow = new Server();
-        new Client(serverWindow);
-        new Client(serverWindow);
+        ServerInterface serverInterface = new Server();
+        new Client(serverInterface);
+        new Client(serverInterface);
     }
 }

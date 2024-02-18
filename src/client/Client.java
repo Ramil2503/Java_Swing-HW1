@@ -1,15 +1,15 @@
 package client;
 
-import server.Server;
+import server.ServerInterface;
 
 public class Client {
-    private Server server;
+    private ServerInterface server;
     private boolean connected;
     private ClientGUI clientGUI;
 
     private String customerName;
 
-    public Client(Server server) {
+    public Client(ServerInterface server) {
         this.server = server;
         clientGUI = new ClientGUI(this);
     }

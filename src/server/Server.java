@@ -14,7 +14,7 @@ import javax.swing.JTextArea;
 import client.Client;
 import file_writer.FileManager;
 
-public class Server extends JFrame {
+public class Server extends JFrame implements ServerInterface{
     private static final int WIDTH = 555;
     private static final int HEIGHT = 555;
 
