@@ -1,9 +1,9 @@
 package server;
 
-import client.Client;
+import client.ClientInterface;
 
 public interface ServerInterface {
-    void receiveMessage(Client client, String message);
-    boolean connectClient(Client client);
-    boolean disconnectClient(Client client);
+    void receiveMessage(ClientInterface client, String message);
+    boolean connectClient(ClientInterface client);
+    boolean disconnectClient(ClientInterface client);
 }

@@ -2,7 +2,7 @@ package client;
 
 import server.ServerInterface;
 
-public class Client {
+public class Client implements ClientInterface{
     private ServerInterface server;
     private boolean connected;
     private ClientGUI clientGUI;

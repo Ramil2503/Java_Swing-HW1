@@ -11,14 +11,14 @@ import java.util.List;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
-import client.Client;
+import client.ClientInterface;
 import file_writer.FileManager;
 
 public class Server extends JFrame implements ServerInterface{
     private static final int WIDTH = 555;
     private static final int HEIGHT = 555;
 
-    private List<Client> clientList;
+    private List<ClientInterface> clientList;
     
     private String pathToLog = "src/server/serverlog.txt";
     private FileManager fileManager;
@@ -42,7 +42,7 @@ public class Server extends JFrame implements ServerInterface{
         setVisible(true);
     }
 
-    public boolean connectClient(Client client) {
+    public boolean connectClient(ClientInterface client) {
         if (work) {
             addClient(client);
             appendLog("Client " + client.getCustomerName() + " connected to the server");
@@ -53,7 +53,7 @@ public class Server extends JFrame implements ServerInterface{
         }
     }
     
-    public void receiveMessage(Client client, String message) {
+    public void receiveMessage(ClientInterface client, String message) {
         String fomrattedMessage = client.getCustomerName() + ": " + message;
         fileManager.saveInLog(fomrattedMessage);
         appendLog(fomrattedMessage);
@@ -61,22 +61,22 @@ public class Server extends JFrame implements ServerInterface{
     }
 
     public void broadcastMessage(String message) {
-        for (Client client : clientList) {
+        for (ClientInterface client : clientList) {
             client.receiveMessage(message);
         }
     }
 
-    public boolean disconnectClient(Client client) {
+    public boolean disconnectClient(ClientInterface client) {
         removeClient(client);
         appendLog("Client " + client.getCustomerName() + " disconnected from the server");
         return true;
     }
 
-    private void addClient(Client client) {
+    private void addClient(ClientInterface client) {
         clientList.add(client);
     }
 
-    private void removeClient(Client client) {
+    private void removeClient(ClientInterface client) {
         clientList.remove(client);
     }
 
